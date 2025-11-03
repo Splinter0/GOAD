@@ -30,3 +30,4 @@ ansible_winrm_read_timeout_sec=500
 dc01
 dc02
 srv02
+srv03

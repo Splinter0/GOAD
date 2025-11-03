@@ -28,3 +28,13 @@
   ip                 = "{{ip_range}}.22/24"
   gateway            = "{{ip_range}}.1"
 }
+"srv03" = {
+  name               = "SRV03"
+  desc               = "SRV03 - windows server 2019 - {{ip_range}}.23"
+  cores              = 2
+  memory             = 6240
+  clone              = "WinServer2019_x64"
+  dns                = "{{ip_range}}.1"
+  ip                 = "{{ip_range}}.23/24"
+  gateway            = "{{ip_range}}.1"
+}

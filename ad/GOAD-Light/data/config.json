@@ -167,6 +167,72 @@
                     }
                 }
             }
+        },
+        "srv03" : {
+            "hostname" : "dreadfort",
+            "type" : "server",
+            "local_admin_password": "NgtI75cKV+Pu",
+            "domain" : "north.sevenkingdoms.local",
+            "path" : "DC=north,DC=sevenkingdoms,DC=local",
+            "use_laps": false,
+            "local_groups" : {
+                "Administrators" : [
+                    "north\\jeor.mormont"
+                ],
+                "Remote Desktop Users" : [
+                    "north\\Night Watch",
+                    "north\\Mormont",
+                    "north\\Stark"
+                ]
+            },
+            "scripts" : [],
+            "vulns" : ["directory", "disable_firewall", "openshares", "files", "permissions"],
+            "vulns_vars" : {
+                "directory": {
+                    "shares": "C:\\shares",
+                    "all": "C:\\shares\\all"
+                },
+                "files" : {
+                    "website" : {
+                        "src" : "srv02/wwwroot",
+                        "dest" : "C:\\inetpub\\"
+                    },
+                    "letter_in_shares": {
+                        "src" : "srv02/all/arya.txt",
+                        "dest": "C:\\shares\\all\\arya.txt"
+                    }
+                },
+                "permissions" : {
+                    "IIS_IUSRS_upload": {
+                        "path" : "C:\\inetpub\\wwwroot\\upload",
+                        "user" : "IIS_IUSRS",
+                        "rights" : "FullControl"
+                    }
+                }
+            },
+            "mssql":{
+                "sa_password": "Sup1_sa_P@ssw0rd!",
+                "svcaccount" : "sql_svc",
+                "sysadmins" : [
+                    "NORTH\\jon.snow"
+                ],
+                "executeaslogin" : {
+                    "NORTH\\samwell.tarly" : "sa",
+                    "NORTH\\brandon.stark" :  "NORTH\\jon.snow"
+                },
+                "executeasuser" : {
+                    "arya_master_dbo": {
+                        "user": "NORTH\\arya.stark",
+                        "db"  : "master",
+                        "impersonate" : "dbo"
+                    },
+                    "arya_dbms_dbo": {
+                        "user": "NORTH\\arya.stark",
+                        "db"  : "msdb",
+                        "impersonate" : "dbo"
+                    }
+                }
+            }
         }
     },
     "domains" : {

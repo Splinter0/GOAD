@@ -33,6 +33,7 @@ ad_https_proxy=http://x.x.x.x:xxxx
 dc01
 dc02
 srv02
+srv03
 
 ; domain controler (mandatory)
 ; usage : ad-acl.yml, ad-data.yml, ad-relations.yml, laps.yml
@@ -44,6 +45,7 @@ dc02
 ; usage : ad-data.yml, ad-servers.yml, laps.yml
 [server]
 srv02
+srv03
 
 ; workstation to enroll (mandatory if you want workstation)
 ; usage : ad-servers.yml, laps.yml
@@ -77,20 +79,24 @@ dc01
 ; usage : servers.yml
 [iis]
 srv02
+srv03
 
 ; install mssql
 ; usage : servers.yml
 [mssql]
 srv02
+srv03
 
 ; install mssql gui
 ; usage : servers.yml
 [mssql_ssms]
 srv02
+srv03
 
 ; install webdav 
 [webdav]
 srv02
+srv03
 
 ; install elk
 ; usage : elk.yml
@@ -109,6 +115,7 @@ srv02
 ; usage : update.yml
 [update]
 srv02
+srv03
 
 ; disable update
 ; usage : update.yml
@@ -126,3 +133,4 @@ dc02
 ; usage : security.yml
 [defender_off]
 srv02
+srv03
