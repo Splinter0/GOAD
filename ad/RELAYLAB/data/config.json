@@ -1,0 +1,284 @@
+{
+"lab" : {
+    "hosts" : {
+        "dc01" : {
+            "hostname" : "dc01",
+            "type" : "dc",
+            "local_admin_password": "8dCT-DJjgScp",
+            "domain" : "software.local",
+            "path" : "DC=software,DC=local",
+            "local_groups" : {
+                "Administrators" : [
+                    "software\\adm-lewis"
+                ],
+                "Remote Desktop Users" : [
+                    "software\\adm-lewis"
+                ]
+            },
+            "scripts" : [],
+            "vulns" : ["disable_firewall"]
+        },
+        "ca01" : {
+            "hostname" : "ca01",
+            "type" : "server",
+            "local_admin_password": "8dCT-DJjgScp",
+            "domain" : "software.local",
+            "path" : "DC=software,DC=local",
+            "vulns" : ["disable_firewall", "adcs_esc6", "adcs_esc11"],
+            "use_laps": false,
+            "local_groups" : {
+                "Administrators" : [
+                    "software\\adm-lewis"
+                ],
+                "Remote Desktop Users" : [
+                    "software\\adm-lewis",
+                    "software\\john"
+                ]
+            }
+        },
+        "srv02" : {
+            "hostname" : "storage",
+            "type" : "server",
+            "local_admin_password": "8dCT-DJjgScp",
+            "domain" : "software.local",
+            "path" : "DC=software,DC=local",
+            "use_laps": false,
+            "local_groups" : {
+                "Administrators" : [
+                    "software\\john",
+                    "software\\svc_http"
+                ],
+                "Remote Desktop Users" : [
+                    "software\\martin"
+                ]
+            },
+            "scripts" : [],
+            "vulns" : ["directory", "disable_firewall", "openshares", "files", "permissions"],
+            "vulns_vars" : {
+                "directory": {
+                    "shares": "C:\\shares",
+                    "all": "C:\\shares\\all"
+                },
+                "files" : {
+                    "website" : {
+                        "src" : "srv02/wwwroot",
+                        "dest" : "C:\\inetpub\\"
+                    },
+                    "letter_in_shares": {
+                        "src" : "srv02/all/arya.txt",
+                        "dest": "C:\\shares\\all\\arya.txt"
+                    }
+                },
+                "permissions" : {
+                    "IIS_IUSRS_upload": {
+                        "path" : "C:\\inetpub\\wwwroot\\upload",
+                        "user" : "IIS_IUSRS",
+                        "rights" : "FullControl"
+                    }
+                }
+            },
+            "mssql":{
+                "sa_password": "Sup1_sa_P@ssw0rd!",
+                "svcaccount" : "sql_svc",
+                "sysadmins" : [
+                    "software\\john"
+                ],
+                "executeaslogin" : {
+                    "software\\john" : "sa"
+                },
+                "executeasuser" : {
+                    "iis_master_dbo": {
+                        "user": "software\\svc_http",
+                        "db"  : "master",
+                        "impersonate" : "dbo"
+                    }
+                }
+            }
+        },
+        "srv03" : {
+            "hostname" : "app",
+            "type" : "server",
+            "local_admin_password": "8dCT-DJjgScp",
+            "domain" : "software.local",
+            "path" : "DC=software,DC=local",
+            "use_laps": false,
+            "local_groups" : {
+                "Administrators" : [
+                    "software\\john",
+                    "software\\svc_http"
+                ],
+                "Remote Desktop Users" : []
+            },
+            "scripts" : [],
+            "vulns" : ["directory", "disable_firewall", "openshares", "files", "permissions"],
+            "vulns_vars" : {
+                "directory": {
+                    "shares": "C:\\shares",
+                    "all": "C:\\shares\\all"
+                },
+                "files" : {
+                    "website" : {
+                        "src" : "srv02/wwwroot",
+                        "dest" : "C:\\inetpub\\"
+                    },
+                    "letter_in_shares": {
+                        "src" : "srv02/all/arya.txt",
+                        "dest": "C:\\shares\\all\\arya.txt"
+                    }
+                },
+                "permissions" : {
+                    "IIS_IUSRS_upload": {
+                        "path" : "C:\\inetpub\\wwwroot\\upload",
+                        "user" : "IIS_IUSRS",
+                        "rights" : "FullControl"
+                    }
+                }
+            }
+        },
+        "srv04" : {
+            "hostname" : "portal",
+            "type" : "server",
+            "local_admin_password": "8dCT-DJjgScp",
+            "domain" : "software.local",
+            "path" : "DC=software,DC=local",
+            "use_laps": false,
+            "local_groups" : {
+                "Administrators" : [
+                    "software\\consultant"
+                ],
+                "Remote Desktop Users" : [
+                    "software\\john"
+                ]
+            },
+            "scripts" : [],
+            "vulns" : ["directory", "disable_firewall", "openshares", "files", "permissions"],
+            "vulns_vars" : {
+                "directory": {
+                    "shares": "C:\\shares",
+                    "all": "C:\\shares\\all"
+                },
+                "files" : {
+                    "website" : {
+                        "src" : "srv02/wwwroot",
+                        "dest" : "C:\\inetpub\\"
+                    },
+                    "letter_in_shares": {
+                        "src" : "srv02/all/arya.txt",
+                        "dest": "C:\\shares\\all\\arya.txt"
+                    }
+                },
+                "permissions" : {
+                    "IIS_IUSRS_upload": {
+                        "path" : "C:\\inetpub\\wwwroot\\upload",
+                        "user" : "IIS_IUSRS",
+                        "rights" : "FullControl"
+                    }
+                }
+            },
+            "mssql":{
+                "sa_password": "Sup1_sa_P@ssw0rd!",
+                "svcaccount" : "sql_svc",
+                "sysadmins" : [
+                    "software\\john"
+                ],
+                "executeaslogin" : {
+                    "software\\john" : "sa"
+                },
+                "executeasuser" : {
+                    "iis_master_dbo": {
+                        "user": "software\\svc_http",
+                        "db"  : "master",
+                        "impersonate" : "dbo"
+                    }
+                }
+            }
+        }
+    },
+    "domains" : {
+        "software.local" : {
+            "dc": "dc01",
+            "ca_web_enrollment": true,
+            "domain_password" : "8dCT-DJjgScp",
+            "netbios_name": "software",
+            "trust" : "",
+            "laps_path": "OU=Laps,DC=software,DC=local",
+            "organisation_units" : {
+            },
+            "groups" : {
+                "universal" : {},
+                "global" : {
+                    "Dev" : {
+                        "managed_by" : "john",
+                        "path" : "CN=Users,DC=software,DC=local"
+                    },
+                    "Finance" : {
+                        "managed_by" : "martin",
+                        "path" : "CN=Users,DC=software,DC=local"
+                    }
+                }
+            },
+            "multi_domain_groups_member" : {},
+            "acls" : {
+                "anonymous_rpc" : {"for": "NT AUTHORITY\\ANONYMOUS LOGON", "to": "DC=software,DC=local", "right": "ReadProperty", "inheritance": "All"},
+                "anonymous_rpc2" : {"for": "NT AUTHORITY\\ANONYMOUS LOGON", "to": "DC=software,DC=local", "right": "GenericExecute", "inheritance": "All"}
+            },
+            "users" : {
+                "john": {
+                    "firstname"   : "John",
+                    "surname"     : "Test",
+                    "password"    : "8dCT-DJjgScp",
+                    "city"        : "",
+                    "description" : "8dCT-DJjgScp",
+                    "groups"      : ["Dev"],
+                    "path"        : "CN=Users,DC=software,DC=local"
+                },
+                "consultant": {
+                    "firstname"   : "Consultant",
+                    "surname"     : "Test",
+                    "password"    : "8dCT-DJjgScp",
+                    "city"        : "",
+                    "description" : "8dCT-DJjgScp",
+                    "groups"      : [],
+                    "path"        : "CN=Users,DC=software,DC=local"
+                },
+                "martin": {
+                    "firstname"   : "Martin",
+                    "surname"     : "Test",
+                    "password"    : "8dCT-DJjgScp",
+                    "city"        : "",
+                    "description" : "8dCT-DJjgScp",
+                    "groups"      : ["Finance"],
+                    "path"        : "CN=Users,DC=software,DC=local"
+                },
+                "adm-lewis": {
+                    "groups": ["Domain Admins"],
+                    "firstname"   : "Lewis",
+                    "surname"     : "Admin",
+                    "password"    : "8dCT-DJjgScp",
+                    "city"        : "",
+                    "description" : "8dCT-DJjgScp",
+                    "path"        : "CN=Users,DC=software,DC=local"
+                },
+                "sql_svc" : {
+                    "firstname"   : "sql",
+                    "surname"     : "service",
+                    "password"    : "YouWillNotKerboroast1ngMeeeeee",
+                    "city"        : "-",
+                    "description" : "sql service",
+                    "groups"      : [],
+                    "path"        : "CN=Users,DC=software,DC=local",
+                    "spns"        : ["MSSQLSvc/portal.software.local:1433","MSSQLSvc/portal.software.local"]
+                },
+                "svc_http" : {
+                    "firstname"   : "http",
+                    "surname"     : "service",
+                    "password"    : "YouWillNotKerboroast1ngMeeeeee",
+                    "city"        : "-",
+                    "description" : "http service",
+                    "groups"      : [],
+                    "path"        : "CN=Users,DC=software,DC=local"
+                }
+            }
+        }  
+    }
+}}
