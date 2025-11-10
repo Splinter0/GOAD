@@ -227,7 +227,7 @@
                     "firstname"   : "John",
                     "surname"     : "Test",
                     "password"    : "8dCT-DJjgScp",
-                    "city"        : "",
+                    "city"        : "-",
                     "description" : "8dCT-DJjgScp",
                     "groups"      : ["Dev"],
                     "path"        : "CN=Users,DC=software,DC=local"
@@ -235,9 +235,9 @@
                 "consultant": {
                     "firstname"   : "Consultant",
                     "surname"     : "Test",
-                    "password"    : "8dCT-DJjgScp",
-                    "city"        : "",
-                    "description" : "8dCT-DJjgScp",
+                    "password"    : "TestTest1234!",
+                    "city"        : "-",
+                    "description" : "TestTest1234!",
                     "groups"      : [],
                     "path"        : "CN=Users,DC=software,DC=local"
                 },
@@ -245,18 +245,18 @@
                     "firstname"   : "Martin",
                     "surname"     : "Test",
                     "password"    : "8dCT-DJjgScp",
-                    "city"        : "",
+                    "city"        : "-",
                     "description" : "8dCT-DJjgScp",
                     "groups"      : ["Finance"],
                     "path"        : "CN=Users,DC=software,DC=local"
                 },
                 "adm-lewis": {
-                    "groups": ["Domain Admins"],
                     "firstname"   : "Lewis",
                     "surname"     : "Admin",
                     "password"    : "8dCT-DJjgScp",
-                    "city"        : "",
+                    "city"        : "-",
                     "description" : "8dCT-DJjgScp",
+                    "groups"      :   ["Domain Admins"],
                     "path"        : "CN=Users,DC=software,DC=local"
                 },
                 "sql_svc" : {
