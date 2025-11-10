@@ -8,10 +8,10 @@ dc01 ansible_host={{ip_range}}.10 dns_domain=dc01 dict_key=dc01 ansible_user=adm
 ; ------------------------------------------------
 ; north.software.local
 ; ------------------------------------------------
-srv02 ansible_host={{ip_range}}.22 dns_domain=srv02 dict_key=srv02 ansible_user=administrator@software.local ansible_password=8dCT-DJjgScp
-srv03 ansible_host={{ip_range}}.23 dns_domain=srv03 dict_key=srv03 ansible_user=administrator@software.local ansible_password=8dCT-DJjgScp
-srv04 ansible_host={{ip_range}}.24 dns_domain=srv04 dict_key=srv04 ansible_user=administrator@software.local ansible_password=8dCT-DJjgScp
-ca01 ansible_host={{ip_range}}.21 dns_domain=ca01 dict_key=ca01 ansible_user=administrator@software.local ansible_password=8dCT-DJjgScp
+srv02 ansible_host={{ip_range}}.22 dns_domain=dc01 dict_key=srv02 ansible_user=administrator@software.local ansible_password=8dCT-DJjgScp
+srv03 ansible_host={{ip_range}}.23 dns_domain=dc01 dict_key=srv03 ansible_user=administrator@software.local ansible_password=8dCT-DJjgScp
+srv04 ansible_host={{ip_range}}.24 dns_domain=dc01 dict_key=srv04 ansible_user=administrator@software.local ansible_password=8dCT-DJjgScp
+ca01 ansible_host={{ip_range}}.21 dns_domain=dc01 dict_key=ca01 ansible_user=administrator@software.local ansible_password=8dCT-DJjgScp
 
 [all:vars]
 ; domain_name : folder inside ad/

@@ -6,10 +6,10 @@ dc01 ansible_host={{ip_range}}.10 dns_domain=dc01 dict_key=dc01
 ; ------------------------------------------------
 ; north.sevenkingdoms.local
 ; ------------------------------------------------
-srv02 ansible_host={{ip_range}}.22 dns_domain=srv02 dict_key=srv02
-srv03 ansible_host={{ip_range}}.23 dns_domain=srv03 dict_key=srv03
-srv04 ansible_host={{ip_range}}.24 dns_domain=srv04 dict_key=srv04
-ca01 ansible_host={{ip_range}}.21 dns_domain=ca01 dict_key=ca01
+srv02 ansible_host={{ip_range}}.22 dns_domain=dc01 dict_key=srv02
+srv03 ansible_host={{ip_range}}.23 dns_domain=dc01 dict_key=srv03
+srv04 ansible_host={{ip_range}}.24 dns_domain=dc01 dict_key=srv04
+ca01 ansible_host={{ip_range}}.21 dns_domain=dc01 dict_key=ca01
 
 [all:vars]
 force_dns_server=no
