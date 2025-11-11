@@ -16,7 +16,7 @@ variable "config_ws01_ext" {
        desc               = "WS01 - windows 11 - 192.168.10.31"
        cores              = 2
        memory             = 4096
-       clone              = "Windows11_22h2_x64"
+       clone              = "Windows11_23h2_x64"
        dns                = "192.168.10.1"
        ip                 = "192.168.10.31/24"
        gateway            = "192.168.10.1"
