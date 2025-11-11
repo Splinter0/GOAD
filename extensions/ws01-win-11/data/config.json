@@ -1,0 +1,25 @@
+{
+  "lab_extension" : {
+      "hosts" : {
+          "ws01" : {
+              "hostname" : "ws01",
+              "type" : "workstation",
+              "local_admin_password": "EP+xh7Rk6j90",
+              "domain" : "software.local",
+              "path" : "DC=software,DC=local",
+              "local_groups" : {
+                  "Administrators" : [
+                      "software\\adm-lewis"
+                  ],
+                  "Remote Desktop Users" : [
+                      "software\\adm-lewis",
+                      "software\\martin",
+                      "software\\john"
+
+                  ]
+              },
+              "security": ["enable_run_as_ppl"]
+          }
+      }
+  }
+}

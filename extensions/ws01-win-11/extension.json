@@ -1,0 +1,11 @@
+{
+    "name": "ws01",
+    "description": "Add an hardened workstation into the lab",
+    "machines": [
+        "ws01 (ws01.software.local)"
+    ],
+    "compatibility": [
+        "RELAY"
+    ],
+    "impact": "aaa"
+}
